@@ -1,0 +1,212 @@
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(images/Gradient.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Logo */
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0 10px;
+}
+.title img {
+  width: clamp(120px, 18vw, 200px);
+  height: clamp(120px, 18vw, 200px);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Team grid: single row desktop */
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  flex-wrap: nowrap; /* iisang row */
+  overflow: visible; /* walang scroll */
+}
+
+/* Quotes style */
+.quote {
+  font-style: italic;
+  font-family: 'Georgia', serif;
+  font-size: clamp(12px, 1.9vw, 15px);
+  color: #444;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* Card (glass) */
+.profile-card {
+  flex: 1 1 0; /* pantay na hati ng space */
+  max-width: none;
+  background: rgba(255, 255, 255, .3);
+  background-clip: padding-box;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: clamp(12px, 2.2vw, 20px);
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .1);
+  transition: transform .3s ease;
+  word-break: break-word;
+  scroll-snap-align: start;
+}
+.profile-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Per-card colors */
+.profile-card:nth-child(1) { background: rgba(224, 247, 250, .85); }
+.profile-card:nth-child(2) { background: rgba(187, 222, 251, .85); }
+.profile-card:nth-child(3) { background: rgba(252, 228, 236, .85); }
+.profile-card:nth-child(4) { background: rgba(178, 223, 219, .85); }
+
+/* Profile image */
+.profile-img {
+  width: clamp(90px, 22vw, 160px);
+  height: clamp(90px, 22vw, 160px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  margin-bottom: 12px;
+}
+
+/* Typography */
+.profile-card h2 {
+  font-size: clamp(16px, 2.4vw, 22px);
+  margin: 6px 0 8px;
+}
+.profile-card p {
+  font-size: clamp(12px, 1.9vw, 16px);
+  line-height: 1.35;
+  margin: 4px 0;
+}
+
+/* MOBILE: stack vertical */
+@media (max-width: 480px) {
+  .title img {
+    width: 120px;
+    height: 120px;
+  }
+  .team-grid {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .profile-card {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .profile-card { transition: none; }
+  .profile-card:hover { transform: none; }
+}
+
+/* BLUR kapag bukas modal */
+.blur {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
+
+/* Modal overlay */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Modal box */
+.modal-content {
+  background: none; /* default glass */
+  background-clip: padding-box;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+  animation: zoomIn 0.3s ease;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Blur effect kapag modal open */
+.blur {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
+
+/* Modal overlay */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+/* Modal box */
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
