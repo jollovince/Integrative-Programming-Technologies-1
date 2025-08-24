@@ -1,67 +1,63 @@
 <?php
 
-// If statement
-$temperature = 15;
+// If statement (Weather Example)
+$isRaining = true;
 
-if ($temperature > 20) {
-    echo "It's a hot day! <br>";
+if ($isRaining) {
+    echo "Don't forget your umbrella! <br>";
 }
 
-$temperature = 25;
-if ($temperature > 20) {
-    echo "It's a hot day! <br>";
+$isRaining = false;
+if ($isRaining) {
+    echo "It's raining again! <br>";
 }
 
 echo "<hr>";
 
-// If Else statement
-$age = 17;
+// If Else statement (Time of Day Example)
+$hour = 14; // 24-hour format (14 = 2 PM)
 
-if ($age >= 18) {
-    echo "You are old enough to vote. <br>";
+if ($hour < 12) {
+    echo "Good morning! <br>";
 } else {
-    echo "You are not old enough to vote yet. <br>";
+    echo "Good afternoon or evening! <br>";
 }
 
 echo "<hr>";
 
-// If...elseif...else statement
-$score = 85;
+// If...elseif...else statement (Speed Example)
+$speed = 65;
 
-if ($score >= 90) {
-    echo "Your grade is an A. <br>";
-} elseif ($score >= 80) {
-    echo "Your grade is a B. <br>";
-} elseif ($score >= 70) {
-    echo "Your grade is a C. <br>";
+if ($speed > 100) {
+    echo "You are overspeeding! <br>";
+} elseif ($speed >= 60) {
+    echo "You are driving at a normal speed. <br>";
+} elseif ($speed >= 30) {
+    echo "You are driving slowly. <br>";
 } else {
-    echo "Your grade is an F. <br>";
+    echo "Your vehicle is almost at a stop. <br>";
 }
 
 echo "<hr>";
 
-// Switch statement
-$dayOfWeek = "Tuesday";
+// Switch statement (Meals of the Day Example)
+$meal = "Dinner";
 
-switch ($dayOfWeek) {
-    case "Monday":
-        echo "It's the start of the week. <br>";
+switch ($meal) {
+    case "Breakfast":
+        echo "Time for some coffee and eggs! <br>";
         break;
-    case "Tuesday":
-        echo "Second day of the week. Let's get to work! <br>";
+    case "Lunch":
+        echo "How about rice and adobo? <br>";
         break;
-    case "Wednesday":
-        echo "Hump day! We're halfway there. <br>";
+    case "Snack":
+        echo "Grab some merienda! <br>";
         break;
-    case "Thursday":
-        echo "Almost the weekend! <br>";
-        break;
-    case "Friday":
-        echo "TGIF! Time to relax. <br>";
+    case "Dinner":
+        echo "Enjoy your evening meal with family. <br>";
         break;
     default:
-        echo "It's the weekend! Time to rest. <br>";
+        echo "Anytime is food time! <br>";
 }
 
 ?>
-
