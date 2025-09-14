@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Body with animated gradient */
+body {
+  font-family: 'Montserrat';
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 800% 800%;
+  animation: gradientMove 20s ease infinite;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Logo */
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0 10px;
+}
+.title img {
+  width: clamp(120px, 18vw, 200px);
+  height: clamp(120px, 18vw, 200px);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Team grid: single row desktop */
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: nowrap;
+  overflow: visible;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Flip Card Container */
+.flip-card {
+  flex: 1 1 300px;
+  max-width: 320px;
+  background: transparent;
+  perspective: 1000px;
+  height: 500px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base card glass style */
+.profile-card {
+  background: rgba(255, 255, 255, 0.2);
+  background-clip: padding-box;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  word-break: break-word;
+  scroll-snap-align: start;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: scale(1.02);
+}
+
+.flip-card.flipped:hover .flip-card-inner {
+  transform: rotateY(180deg) scale(1.02);
+}
+
+/* Per-card glass colors */
+.flip-card:nth-child(1) .profile-card {
+  background: rgba(224, 247, 250, 0.3);
+  border: 2px solid rgba(224, 247, 250, 0.6);
+}
+.flip-card:nth-child(2) .profile-card {
+  background: rgba(187, 222, 251, 0.3);
+  border: 2px solid rgba(187, 222, 251, 0.6);
+}
+.flip-card:nth-child(3) .profile-card {
+  background: rgba(252, 228, 236, 0.3);
+  border: 2px solid rgba(252, 228, 236, 0.6);
+}
+.flip-card:nth-child(4) .profile-card {
+  background: rgba(178, 223, 219, 0.3);
+  border: 2px solid rgba(178, 223, 219, 0.6);
+}
+
+/* Profile images */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 12px auto 16px auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.profile-img-jollo { border: 4px solid #e0f7fa; }
+.profile-img-magpantay { border: 4px solid #bbdefb; }
+.profile-img-dorol { border: 4px solid #fce4ec; }
+.profile-img-guanzon { border: 4px solid #b2dfdb; }
+
+
+/* Typography */
+.profile-card h2 {
+  font-size: 18px;
+  margin: 8px 0 12px;
+  line-height: 1.2;
+}
+.profile-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 6px 0;
+}
+
+/* Quote styling */
+.quote {
+  font-style: italic;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: #444;
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+/* QR Code Container */
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 30px 20px;
+}
+.qr-code {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  background: white;
+  padding: 10px;
+  flex-shrink: 0;
+}
+.qr-container h3 {
+  font-size: 20px;
+  margin: 12px 0 8px;
+  color: #333;
+  line-height: 1.2;
+}
+.qr-container p {
+  font-size: 14px;
+  margin: 4px 0 16px;
+  color: #666;
+  line-height: 1.3;
+}
+.qr-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+.qr-link:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 🌞🌙 Dark Mode Emoji Button (Glassy) */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  transition: background 0.5s ease, transform 0.3s ease, color 0.5s ease;
+  user-select: none;
+}
+.dark-mode-toggle:hover {
+  transform: rotate(15deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.35);
+}
+body.dark-mode .dark-mode-toggle {
+  background: rgba(30,30,30,0.6);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #ffd43b;
+}
+.dark-mode-toggle span {
+  display: inline-block;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.dark-mode-toggle .sun {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+body.dark-mode .dark-mode-toggle .sun {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.5);
+}
+.dark-mode-toggle .moon {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.5);
+}
+body.dark-mode .dark-mode-toggle .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Dark Mode Background & Elements */
+body.dark-mode {
+  color: #eee;
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364, #1e3c72);
+  background-size: 800% 800%;
+  animation: gradientMoveDark 20s ease infinite;
+}
+body.dark-mode .profile-card {
+  background: rgba(30, 30, 30, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #eee;
+}
+body.dark-mode .quote {
+  color: #9cdcfe;
+}
+body.dark-mode .qr-link {
+  background: rgba(50, 50, 50, 0.8);
+  color: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+body.dark-mode .qr-link:hover {
+  background: rgba(80, 80, 80, 0.95);
+}
+
+/* ✨ Neon Glow Effect sa Dark Mode */
+body.dark-mode .flip-card:nth-child(1) .profile-card {
+  border: 2px solid rgba(224, 247, 250, 0.8);
+  box-shadow: 0 0 15px rgba(224, 247, 250, 0.7);
+}
+body.dark-mode .flip-card:nth-child(2) .profile-card {
+  border: 2px solid rgba(187, 222, 251, 0.8);
+  box-shadow: 0 0 15px rgba(187, 222, 251, 0.7);
+}
+body.dark-mode .flip-card:nth-child(3) .profile-card {
+  border: 2px solid rgba(252, 228, 236, 0.8);
+  box-shadow: 0 0 15px rgba(252, 228, 236, 0.7);
+}
+body.dark-mode .flip-card:nth-child(4) .profile-card {
+  border: 2px solid rgba(178, 223, 219, 0.8);
+  box-shadow: 0 0 15px rgba(178, 223, 219, 0.7);
+}
+
+/* RESPONSIVE DESIGN */
+@media (min-width: 1200px) {
+  .team-grid { gap: 24px; }
+  .flip-card { max-width: 300px; }
+}
+@media (max-width: 1199px) and (min-width: 900px) {
+  .flip-card { max-width: 280px; height: 480px; }
+  .team-grid { gap: 16px; }
+}
+@media (max-width: 899px) and (min-width: 600px) {
+  .team-grid { flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .flip-card { flex: 1 1 calc(50% - 10px); max-width: 350px; height: 480px; }
+}
+@media (max-width: 599px) {
+  .title img { width: 120px; height: 120px; }
+  .team-grid {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 16px;
+    padding: 16px;
+  }
+  .flip-card { flex: 1 1 auto; max-width: 100%; height: 450px; }
+  .profile-card { padding: 16px; }
+  .profile-img { width: 100px; height: 100px; }
+  .profile-card h2 { font-size: 16px; }
+  .profile-card p { font-size: 13px; }
+  .quote { font-size: 12px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner { transition: none; }
+  .flip-card:hover .flip-card-inner { transform: none; }
+  .flip-card.flipped:hover .flip-card-inner { transform: rotateY(180deg); }
+}
+
+/* Light Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Dark Gradient Animation */
+@keyframes gradientMoveDark {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🔍 Search Bar Styling */
+.search-form {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.search-form input[type="text"] {
+  padding: 12px 18px;
+  width: clamp(220px, 40%, 400px);
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-form input[type="text"]::placeholder {
+  color: #555;
+  font-style: italic;
+}
+
+.search-form input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: #333;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+/* Search Button */
+.search-form button {
+  margin-left: 10px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.search-form button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* 🌙 Dark Mode Search Bar */
+body.dark-mode .search-form input[type="text"] {
+  background: rgba(30, 30, 30, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #eee;
+}
+body.dark-mode .search-form input[type="text"]::placeholder {
+  color: #aaa;
+}
+body.dark-mode .search-form input[type="text"]:focus {
+  background: rgba(50, 50, 50, 0.8);
+  border-color: #ffd43b;
+  box-shadow: 0 0 10px rgba(255, 212, 59, 0.6);
+}
+body.dark-mode .search-form button {
+  background: rgba(50, 50, 50, 0.8);
+  color: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+body.dark-mode .search-form button:hover {
+  background: rgba(80, 80, 80, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+              }
