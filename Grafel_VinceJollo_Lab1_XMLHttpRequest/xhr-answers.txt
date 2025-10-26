@@ -1,0 +1,45 @@
+1. What is the difference between readyState and status in XMLHttpRequest?
+Property:
+readyState
+status
+
+Description:
+
+Shows the current state or phase of the request. It changes as the request is processed.
+Shows the HTTP response code from the server (e.g., 200 = OK, 404 = Not Found).
+
+Example:
+
+xhr.readyState   // tells what phase the request is in (0–4)
+xhr.status       // tells if the request was successful (like 200)
+
+readyState values:
+Value: 0 1 2 3 4  
+
+Meaning: 
+Request not initialized
+Connection established
+Request received
+Processing request
+Request finished and response is ready
+
+2. How can you make the request asynchronous?
+You can make a request asynchronous by setting the third parameter to true in the open() method of XMLHttpRequest.
+
+Example: 
+
+xhr.open("GET", "data.json", true); // true = asynchronous
+xhr.send();
+
+If you use false, the request becomes synchronous (which blocks the browser until the response is complete).
+
+3. Why is asynchronous communication recommended for web applications?
+Asynchronous communication is recommended because it:
+
+Does not block the user interface — users can still interact with the page while data is being loaded.
+Improves performance — only specific parts of the page are updated without reloading the whole page.
+Enhances user experience — responses appear smoother and faster.
+Allows background processing — requests can run quietly while users continue browsing.
+Example:
+
+When you send a form or load content dynamically (like chat messages or notifications), the page doesn’t refresh — thanks to asynchronous communication.
