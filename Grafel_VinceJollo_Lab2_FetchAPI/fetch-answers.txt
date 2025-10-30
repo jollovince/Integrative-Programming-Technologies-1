@@ -1,0 +1,27 @@
+‎What are the main differences between XMLHttpRequest and Fetch API? 
+‎
+‎In JavaScript, HTTP requests can be made using either the XMLHttpRequest (XHR) or the Fetch API, 
+‎but they are very different in style and usage: the XMLHttpRequest is the older method that requires callbacks and manual state checking, 
+‎which is less readable and difficult to maintain, while the Fetch API is the modern replacement that uses Promises to make writing cleaner,
+‎more readable, and easier-to-follow asynchronous code, 
+‎and developers no longer have to manually check properties like readyState or status and instead use simple .then() and .catch() methods for success and error responses.
+‎
+‎Why is the Fetch API considered more modern and readable?
+‎
+‎The Fetch API is deemed more modern and readable, since it utilizes Promises and works well with newer JavaScript features like async and await, 
+‎which makes asynchronous code flow much easier to read, as it reads more like synchronous code. It also has built-in methods, like .json(), 
+‎which can parse responses for you, whereas with XMLHttpRequest, you have to manually parse using JSON.parse().
+‎
+‎What is the purpose of the .then() and .catch() methods in Fetch?
+‎
+‎The .then() and .catch() methods in Fetch are essential for handling asynchronous operations. 
+‎The .then() method is used to process the response when the request is successful, allowing access to the returned data. 
+‎Also the .catch() method is used to handle errors that may occur during the request, such as network failures or server issues. 
+‎This structured way of handling results and errors leads to cleaner, more predictable code.
+‎
+‎What happens when you send a POST request to the placeholder API?
+‎
+‎The placeholder API at https://jsonplaceholder.typicode.com/posts will simulate the creation of a new post on request, 
+‎but since it is a testing and learning service, it will not actually create or store a new post, 
+‎so your POST request to https://jsonplaceholder.typicode.com/posts will not actually create or store a new post, 
+‎and it will instead return a fake response with the data you sent along with a mock ID (typically 101).
